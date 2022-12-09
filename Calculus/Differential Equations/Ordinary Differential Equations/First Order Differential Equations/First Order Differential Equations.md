@@ -1,8 +1,9 @@
-$$ \frac{dy}{dx} = f(x, y(x)) $$
+$$\frac{dy}{dx} = f(x, y(x))$$
 # Existence and Uniqueness Theorem
 Before solving a given initial value problem, it is useful to know if there even is a solution to seek after. This is what the Existence and Uniqueness Theorem for first order differential equations tells us. For the initial value problem of the form,
 
-$$\begin{cases}
+$$
+\begin{cases}
 \frac{dy}{dx} = f(x, y(x))\\
 y(x_0) = y_0
 \end{cases}
@@ -158,17 +159,11 @@ The second part of the above theorem also gives us the solution to the equation 
 Suppose that
 $$M_y(x, y) = N_x(x, y)$$ 
 and let there be a function $\psi(x, y)$ for which
-$$
-\psi_x(x, y) = M(x, y) \text{ and } \psi_y(x, y) = N(x, y)
-$$
+$$\psi_x(x, y) = M(x, y) \text{ and } \psi_y(x, y) = N(x, y)$$
 
 Begin by integrating the first equation with respect to $x$.
-$$
-\frac{\partial \psi}{\partial x}(x, y) = M(x, y)
-$$
-$$
-\Downarrow
-$$
+$$\frac{\partial \psi}{\partial x}(x, y) = M(x, y)$$
+$$\Downarrow$$
 $$\psi(x, y) = \int{M(x, y) dx} + h(y)$$
 $$\psi(x, y) = Q(x, y) + h(y)$$
 Where $Q(x, y)$ is any differentiable function such that $Q_x = M$
