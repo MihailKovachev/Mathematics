@@ -55,7 +55,7 @@ I changed $x$ for $t$ solely because it looks nicer.
 Example:
 
 $$
-\begin{cases}\\
+\begin{cases}
 ty' + (t+1)y = t, t \ne 0\\
 y(\ln(2)) = 1
 \end{cases}
