@@ -134,15 +134,13 @@ $$M_y(x, y) = N_x(x, y)$$
 That is, there exists a function $\psi(x, y)$ such that
 $$\psi_x(x, y) = M(x, y) \text{ and } \psi_y(x, y) = N(x, y)$$
 So, in general
-$$
-M_y(x, y) = N_x(x, y)
+$$M_y(x, y) = N_x(x, y)
 \iff
 \begin{cases}
 \exists \psi(x, y)\\
 \psi_x(x, y) = M(x, y)\\
 \psi_y(x, y) = N(x, y)
-\end{cases}
-$$
+\end{cases}$$
 
 ### Proof
 The proof has two parts.
