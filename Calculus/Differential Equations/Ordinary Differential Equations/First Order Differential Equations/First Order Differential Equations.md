@@ -53,13 +53,13 @@ $$y(t) = e^{-at}\left(\int{e^{at}g(t) dt} + C\right) = e^{-at}\int{e^{at}g(t) dt
 I changed $x$ for $t$ solely because it looks nicer.
 
 Example:
+
 $$
 \begin{cases}\\
 ty' + (t+1)y = t, t \ne 0\\
 y(\ln(2)) = 1
 \end{cases}
 $$
-
 $$\Downarrow$$
 $$y' + \frac{t+1}{t}y = 1$$
 $$\mu(t)y' + \mu(t)\frac{t+1}{t}y = \mu(t)$$
