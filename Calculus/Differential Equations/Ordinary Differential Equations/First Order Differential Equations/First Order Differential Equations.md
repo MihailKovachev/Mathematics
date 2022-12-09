@@ -53,9 +53,9 @@ $$y(t) = e^{-at}\left(\int{e^{at}g(t) dt} + C\right) = e^{-at}\int{e^{at}g(t) dt
 I changed $x$ for $t$ solely because it looks nicer.
 
 Example:
-$$\begin{cases}
+$$\begin{cases}\\
 ty' + (t+1)y = t, t \ne 0\\
-y(\ln(2)) = 1
+y(\ln(2)) = 1\\
 \end{cases}$$
 $$\Downarrow$$
 $$y' + \frac{t+1}{t}y = 1$$
@@ -134,9 +134,8 @@ $$M_y(x, y) = N_x(x, y)$$
 That is, there exists a function $\psi(x, y)$ such that
 $$\psi_x(x, y) = M(x, y) \text{ and } \psi_y(x, y) = N(x, y)$$
 So, in general
-$$M_y(x, y) = N_x(x, y)
-\iff
-\begin{cases}
+$$M_y(x, y) = N_x(x, y)\\\iff
+\begin{cases}\\
 \exists \psi(x, y)\\
 \psi_x(x, y) = M(x, y)\\
 \psi_y(x, y) = N(x, y)
