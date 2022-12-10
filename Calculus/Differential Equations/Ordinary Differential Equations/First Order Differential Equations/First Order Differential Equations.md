@@ -257,6 +257,7 @@ $$
 $$
 
 $$\Downarrow$$
+
 $$\psi(x, y) = g(x) + f(x, y) + h(y)$$
 
 So, we can simply construct $\psi(x, y)$ by doing $\int{M(x,y) dx}$ and $\int{N(x, y) dy}$ and then taking the common terms we find within the two resulting expressions and then adding the terms which are uniquely found in either one of them.
