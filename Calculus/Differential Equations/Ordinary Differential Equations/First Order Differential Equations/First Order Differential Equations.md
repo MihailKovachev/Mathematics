@@ -291,6 +291,7 @@ Compute and substitute into the second equation.
 $$\psi_y(x, y) = \sin x + x^2e^y - 1$$
 $$\sin x + x^2e^y + h'(y) = \sin x + x^2e^y - 1$$
 $$\Downarrow$$
+
 $$h'(y) = -1$$
 $$h(y) = -y$$
 
@@ -308,6 +309,7 @@ $$(y\cos x + 2xe^y) + (\sin x + x^2e^y - 1)\frac{dy}{dx} = 0$$
 $$M(x, y) = y\cos x + 2xe^y$$
 $$N(x, y) = \sin x + x^2e^y - 1$$
 $$\Downarrow$$
+
 $$\int{M(x, y) dx} = y \sin x + x^2e^y + C_1$$
 $$\int{N(x, y) dy} = y \sin x + x^2e^y - y + C_2$$
 
@@ -317,8 +319,11 @@ $$\psi(x, y) = y \sin x + x^2e^y - y + C_3$$
 Therefore, the solutions to the equation are
 
 $$\frac{d}{dx}\psi(x, y) = 0$$
+
 $$\psi(x, y) = C_4$$
+
 $$y \sin x + x^2e^y - y + C_3 = C_4$$
+
 $$y \sin x + x^2e^y - y = C$$
 
 Where $C$ was obtained from the merging of the two constants $C_3$ and $C_4$.
