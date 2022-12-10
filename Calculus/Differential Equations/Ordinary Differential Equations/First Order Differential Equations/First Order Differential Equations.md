@@ -109,7 +109,7 @@ $$\frac{d}{dx}(F(x) + G(y)) = 0$$
 And integrating with respect to $x$, we obtain that
 $$F(x) + G(y) = C$$
 
-This gives us an *implicit* solution to the differential equation. Note that it i often not possible to analytically find an explicit one.
+This gives us an *implicit* solution to the differential equation. Note that it is often not possible to analytically find an explicit one.
 
 Example:
 
@@ -129,6 +129,11 @@ $$\frac{\partial \psi}{\partial x} + \frac{\partial \psi}{\partial y}\frac{dy}{d
 for some function $\psi(x, y)$ such that $\psi(x, y) = c$ implicitly defines $y = \phi(x)$ as a differentiable function of $x$. Equations of this type can be rewritten as
 $$\frac{d}{dx}\psi(x, \phi(x)) = 0$$
 
+Thus the general solution to such equations is the following
+$$\psi(x, \phi (x)) = c$$
+
+Where $c$ is a constant.
+
 ## Identifying Exact Differential Equations
 Let the functions $M$, $N$, $M_y$, and $N_x$, where the subscripts denote the partial derivative with respect to the relative variable, be continuous in the region $R: \alpha \lt x \lt \beta, \gamma \lt y \lt \delta$. Then the equation
 $$M(x, y) + N(x, y)\frac{dy}{dx} = 0$$
@@ -147,7 +152,7 @@ M_y(x, y) = N_x(x, y) \iff
 \end{cases}
 $$
 
-### Proof
+## Proof
 The proof has two parts.
 
 First, suppose that there is a function $\psi(x, y)$ such that
@@ -157,14 +162,14 @@ $$M_y(x, y) = \psi_{xy}(x, y) \text{ and } N_x(x, y) = \psi_{yx}(x, y)$$
 
 Since $M_y$ and $N_x$ are continuous, then $\psi_{xy}$ and $\psi_{yx}$ are also continuous which guarantees their equality.
 
-#### Solving Exact Differential Equations
-The second part of the above theorem also gives us the solution to the equation since it involves the construction of $\psi$. 
+The second part of the proof for the above theorem also gives us a way of solving the equation since it involves the construction of $\psi$. 
 Suppose that
 $$M_y(x, y) = N_x(x, y)$$ 
 and let there be a function $\psi(x, y)$ for which
 $$\psi_x(x, y) = M(x, y) \text{ and } \psi_y(x, y) = N(x, y)$$
 
-Begin by integrating the first equation with respect to $x$.
+Begin by integrating the first equation with respect to $x$. In practice, it doesn't matter if we integrate the first or the second equation, so long as we integrate with respect to the appropriate variable. This can come in handy when one of the expressions is much simpler to integrate.
+
 $$\frac{\partial \psi}{\partial x}(x, y) = M(x, y)$$
 $$\Downarrow$$
 $$\psi(x, y) = \int{M(x, y) dx} + h(y)$$
@@ -191,6 +196,128 @@ Now, this is equal to $0$ based on our initial supposition that $M_y(x, y) = N_x
 
 Therefore,
 $$h'(y) = N(x, y) - \frac{\partial Q}{\partial y}(x, y)$$
-$$h(y) = \int{N(x, y) dy} - Q(x, y)$$
+$$h(y) = \int{\left(N(x, y) - \frac{\partial Q}{\partial y}(x, y)\right) dy}$$
 $$\Downarrow$$
-$$h(y) = \int{N(x, y) dy} - \int{M(x, y) dx} + C$$
+$$\psi(x, y) = Q(x, y) + \int{\left(N(x, y) - \frac{\partial Q}{\partial y}(x, y)\right) dy} + C$$
+
+### Solving Exact Differential Equations
+There is, however, a quicker way to do solve exact differential equations than simply following the above proof procedure every time. Consider the following exact differential equation.
+$$M(x, y) + N(x, y)\frac{dy}{dx} = 0$$
+Since we said this was an exact differential equation, then
+$$M_y(x, y) = N_x(x, y)$$
+And there exists a function $\psi(x, y)$, for which
+
+$$
+\begin{cases}
+\psi_x(x, y) = M(x, y)\\
+\psi_y(x, y) = N(x, y)
+\end{cases}
+$$
+
+If we integrate both equations, we get the following system:
+
+$$
+\begin{cases}
+\psi(x, y) = \int{M(x, y) dx} + h(y) = Q(x, y) + h(y)\\
+\psi(x, y) = \int{N(x, y) dy} + g(x) = P(x, y) + g(x)
+\end{cases}
+$$
+$$\Downarrow$$
+$$Q(x, y) + h(y) = P(x, y) + g(x)$$
+
+Where $Q(x, y)$ and $P(x, y)$ are antiderivatives of $M(x, y)$ and $N(x, y)$ with respect to $x$ and $y$, accordingly ($Q_x = M, P_y = N$).
+
+In order for this to be true and for both sides to result in the exact same expression, namely $\psi(x, y)$, then $h(y)$ *must* be contained within the expression for $P(x, y)$ because it cannot be contained within $g(x)$, since it is entirely a function of $y$ and not $x$ and is therefore not allowed to have anything to do with $x$. 
+
+By analogy, $g(x)$ *must* be contained within the expression $Q(x, y)$.
+
+Ergo,
+$$Q(x, y) = g(x) + f(x, y)$$
+and
+$$P(x, y) = h(y) + d(x, y)$$
+for some expressions $f(x, y)$ and $d(x, y)$.
+
+Plugging in in the above equation we obtain
+$$g(x) + f(x, y) + h(y) = h(y) + d(x, y) + g(x)$$
+$$\Downarrow$$
+$$f(x, y) = d(x, y)$$
+
+It turns out that $f$ and $d$ are always the exact same expression!
+Therefore,
+$$Q(x, y) = g(x) + f(x, y)$$
+$$P(x, y) = h(y) + f(x, y)$$
+
+We already showed that
+$$
+\begin{cases}
+\psi(x, y) = Q(x, y) + h(y)\\
+\psi(x, y) = P(x, y) + g(x)
+\end{cases}
+$$
+$$\Downarrow$$
+$$\psi(x, y) = g(x) + f(x, y) + h(y)$$
+
+So, we can simply construct $\psi(x, y)$ by doing $\int{M(x,y) dx}$ and $\int{N(x, y) dy}$ and then taking the common terms we find within the two resulting expressions and then adding the terms which are uniquely found in either one of them.
+
+## Example
+$$(y\cos x + 2xe^y) + (\sin x + x^2e^y - 1)\frac{dy}{dx} = 0$$
+
+First, test to see if this is an exact differential equation:
+
+$$M(x, y) = y\cos x + 2xe^y$$
+$$N(x, y) = \sin x + x^2e^y - 1$$
+$$\Downarrow$$
+$$M_y(x, y) = \cos x + 2xe^y$$
+$$N_x(x, y) = \cos x + 2xe^y = M_y(x, y)$$
+
+So, indeed, this equation is an exact one. Therefore,
+
+$$
+\begin{cases}
+\psi_x(x, y) = y\cos x + 2xe^y\\
+\psi_y(x, y) = \sin x + x^2e^y - 1
+\end{cases}
+$$
+
+Now, integrate the first equation with respect to $x$.
+
+$$\psi(x, y) = y\sin x + x^2e^y + h(y)$$
+
+Compute and substitute into the second equation.
+
+$$\psi_y(x, y) = \sin x + x^2e^y - 1$$
+$$\sin x + x^2e^y + h'(y) = \sin x + x^2e^y - 1$$
+$$\Downarrow$$
+$$h'(y) = -1$$
+$$h(y) = -y$$
+
+Plugging into the formula for $\psi(x, y)$, we obtain:
+$$\psi(x, y) = y\sin x + x^2e^y - y + C$$
+
+Therefore, the solutions to this equation are the following:
+
+$$y\sin x + x^2e^y - y = c$$
+
+Or, alternatively with the easier solution:
+$$(y\cos x + 2xe^y) + (\sin x + x^2e^y - 1)\frac{dy}{dx} = 0$$
+
+(We skip showing this is an exact equation because we did this earlier.)
+$$M(x, y) = y\cos x + 2xe^y$$
+$$N(x, y) = \sin x + x^2e^y - 1$$
+$$\Downarrow$$
+$$\int{M(x, y) dx} = y \sin x + x^2e^y + C_1$$
+$$\int{N(x, y) dy} = y \sin x + x^2e^y - y + C_2$$
+
+Adding each term only once and merging the two constants, $C_1 + C_2 = C_3$:
+$$\psi(x, y) = y \sin x + x^2e^y - y + C_3$$
+
+Therefore, the solutions to the equation are
+
+$$\frac{d}{dx}\psi(x, y) = 0$$
+$$\psi(x, y) = C_4$$
+$$y \sin x + x^2e^y - y + C_3 = C_4$$
+$$y \sin x + x^2e^y - y = C$$
+
+Where $C$ was obtained from the merging of the two constants $C_3$ and $C_4$.
+
+## Integrating Factors and Exact Differential Equations
