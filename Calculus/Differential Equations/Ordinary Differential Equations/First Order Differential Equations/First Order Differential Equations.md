@@ -255,6 +255,7 @@ $$
 \psi(x, y) = P(x, y) + g(x)
 \end{cases}
 $$
+
 $$\Downarrow$$
 $$\psi(x, y) = g(x) + f(x, y) + h(y)$$
 
