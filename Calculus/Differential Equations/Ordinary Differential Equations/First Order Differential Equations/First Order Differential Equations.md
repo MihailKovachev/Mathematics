@@ -225,7 +225,7 @@ $$
 $$\Downarrow$$
 $$Q(x, y) + h(y) = P(x, y) + g(x)$$
 
-Where $Q(x, y)$ and $P(x, y)$ are antiderivatives of $M(x, y)$ and $N(x, y)$ with respect to $x$ and $y$, respectively. ($Q_x = M$, $P_y = N$)
+Where $Q(x, y)$ and $P(x, y)$ are antiderivatives of $M(x, y)$ and $N(x, y)$ with respect to $x$ and $y$, respectively. ( $Q_x = M$, $P_y = N$ )
 
 In order for this to be true and for both sides to result in the exact same expression, namely $\psi(x, y)$, then $h(y)$ *must* be contained within the expression for $P(x, y)$ because it cannot be contained within $g(x)$, since it is entirely a function of $y$ and not $x$ and is therefore not allowed to have anything to do with $x$. 
 
@@ -248,6 +248,7 @@ $$Q(x, y) = g(x) + f(x, y)$$
 $$P(x, y) = h(y) + f(x, y)$$
 
 We already showed that
+
 $$
 \begin{cases}
 \psi(x, y) = Q(x, y) + h(y)\\
