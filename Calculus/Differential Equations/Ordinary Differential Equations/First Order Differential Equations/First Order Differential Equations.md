@@ -170,7 +170,7 @@ $$F(x) + G(y) = C$$
 
 This gives us an *implicit* solution to the differential equation. Note that it is often not possible to analytically find an explicit one.
 
-Example:
+## Example
 
 $$\frac{dy}{dx} - \sqrt{xy}\ln(x) = 0$$
 
@@ -290,7 +290,7 @@ $$\Downarrow$$
 $$\psi(x, y) = Q(x, y) + \int{\left(N(x, y) - \frac{\partial Q}{\partial y}(x, y)\right) dy} + C$$
 
 ### Solving Exact Differential Equations
-There is, however, a quicker way to do solve exact differential equations than simply following the above proof procedure every time. Consider the following exact differential equation.
+There is, however, a quicker way to solve exact differential equations than simply following the above proof procedure every time. Consider the following exact differential equation.
 $$M(x, y) + N(x, y)\frac{dy}{dx} = 0$$
 
 Since we said this was an exact differential equation, then
@@ -355,7 +355,7 @@ $$\Downarrow$$
 
 $$\psi(x, y) = g(x) + f(x, y) + h(y)$$
 
-So, we can simply construct $\psi(x, y)$ by doing $\int{M(x,y) dx}$ and $\int{N(x, y) dy}$ and then taking the common terms we find within the two resulting expressions and then adding the terms which are uniquely found in either one of them.
+So, we can simply construct $\psi(x, y)$ by doing $\int{M(x,y) dx}$ and $\int{N(x, y) dy}$ and then taking the common terms we find within the two resulting expressions (that would be $f(x, y)$ ) and then adding the terms which are uniquely found in either one of them - $g(x)$ and $h(y)$.
 
 ## Example
 $$(y\cos x + 2xe^y) + (\sin x + x^2e^y - 1)\frac{dy}{dx} = 0$$
@@ -414,23 +414,128 @@ $$N(x, y) = \sin x + x^2e^y - 1$$
 
 $$\Downarrow$$
 
-$$\int{M(x, y) dx} = y \sin x + x^2e^y + C_1$$
+$$\int{M(x, y) dx} = y \sin x + x^2e^y + h(y)$$
 
-$$\int{N(x, y) dy} = y \sin x + x^2e^y - y + C_2$$
+$$\int{N(x, y) dy} = y \sin x + x^2e^y - y + g(x)$$
 
-Adding each term only once and merging the two constants, $C_1 + C_2 = C_3$:
-$$\psi(x, y) = y \sin x + x^2e^y - y + C_3$$
+Comparing the two expressions we see that $h(y) = y$ and $g(x) = 0$. The common expression between the two integrals is $y \sin x + x^2e^y$, thus $f(x, y) = y \sin x + x^2e^y$.
 
-Therefore, the solutions to the equation are
+Therefore,
+
+$$\psi(x, y) = g(x) + f(x, y) + h(y) = y \sin x + x^2e^y - y + C$$
+
+Notice that the constant in the end came from $h(y)$ because technically $h(y)$ is allowed to contain a constant term so actually $h(y) = y + C$. This is true of both $h(y)$ and $g(x)$ - they represent "constants of integration" (really "functions of integration") when integrating a multivariable function with respect to only one variable. Whilst they do indeed only depend on either $y$ or $x$ there is absolutely nothing to stop them from also containing any constant term. 
+
+Then the solutions to the equation are
 
 $$\frac{d}{dx}\psi(x, y) = 0$$
 
-$$\psi(x, y) = C_4$$
+$$\psi(x, y) = C_1$$
 
-$$y \sin x + x^2e^y - y + C_3 = C_4$$
+$$y \sin x + x^2e^y - y + C = C_1$$
 
 $$y \sin x + x^2e^y - y = C$$
 
-Where $C$ was obtained from the merging of the two constants $C_3$ and $C_4$.
+Where we merged $C$ and $C_1$ into $C$.
 
 ## Integrating Factors and Exact Differential Equations
+It might sometimes be possible to turn a non-exact differential equation into an exact one by dint of multiplying by an integrating factor similarly to how linear differential equations are solved.
+
+$$M(x, y) + N(x, y)\frac{dy}{dx} = 0$$
+
+$$\Downarrow$$
+
+$$\mu(x, y)M(x, y) + \mu(x, y)N(x, y)\frac{dy}{dx}$$
+
+In order for this new differential equation to be exact, then the following must be true.
+
+$$(\mu M)_y = (\mu N)_x$$
+
+Therefore, $\mu(x, y)$ must satisfy the following first-order partial differential equation.
+
+$$M\mu_y + M_y\mu = N\mu_x + N_x\mu$$
+
+$$\Downarrow$$
+
+$$M\mu_y - N\mu_x + (M_y - N_x)\mu = 0$$
+
+If such a $\mu(x, y)$ can be found, then the equation obtained from multiplying by the integrating factor will be exact. Unfortunately, this equation for $\mu(x,y)$ is ordinarily at least  as difficult to solve as the original equation.
+
+It is useful to try to find a $\mu$ which only depends on either $x$ or $y$ but not both, which would simplify the above equation.
+
+If we are trying to find a $\mu(x)$ only, then the above equation simplifies to the following, since $\frac{d}{dy} \mu(x) = 0$:
+
+$$\frac{d}{dx}\mu(x) = \frac{M_y - N_x}{N}\mu(x)$$
+
+Therefore, if $\frac{M_y - N_x}{N}$ is a function of $x$ only, then there exists an integrating factor $\mu(x)$ which depends solely on $x$ and it can be obtained by solving the above differential equation, which is both linear and separable.
+
+Similarly, if we are trying to find a $\mu(y)$ only, then the above equation simplifies to the following, since $\frac{d}{dx} \mu(y) = 0$:
+
+$$\frac{d}{dy}\mu(y) = \frac{N_x - M_y}{M}\mu(y)$$
+
+Therefore, if $\frac{N_x - M_y}{M}$ is a function of $y$ only, then there exists an integrating factor $\mu(y)$ which depends solely on $y$ and it can be obtained by solving the above differential equation, which is both linear and separable.
+
+### Example
+
+$$(3xy+y^2) + (x^2 + xy)\frac{dy}{dx} = 0$$
+
+$$\Downarrow$$
+
+$$M(x, y) = 3xy+y^2$$
+
+$$N(x, y) = x^2 + xy$$
+
+Testing for exactness...
+
+$$M_y(x, y) = 3x + 2y$$
+
+$$N_x(x, y) = 2x + y$$
+
+Therefore, the differential equation is not exact. Let's then check if it has an integrating factor which depends entirely on $x$.
+
+$$\frac{M_y(x, y) - N_x(x, y)}{N(x, y)} = \frac{3x + 2y - (2x + y)}{x^2 + xy} = 
+\frac{x + y}{x(x + y)} = \frac{1}{x}, y(x) \ne -x$$
+
+So indeed there is an integrating factor which depends only on $x$, which means we can solve the following differential equation to obtain it.
+
+$$\frac{d\mu}{dx} = \frac{1}{x}\mu(x)$$
+
+$$\mu(x) = x$$
+
+Multiplying the initial equation by this integrating factor, we get
+
+$$(3xy+y^2) + (x^2 + xy)\frac{dy}{dx} = 0$$
+
+$$\Downarrow$$
+
+$$(3x^2y + xy^2) + (x^3 + x^2y)\frac{dy}{dx} = 0$$
+
+We can verify that it is exact:
+
+$$\frac{\partial}{\partial y} (3x^2y + xy^2) = 3x^2 + 2xy = \frac{\partial}{\partial x} (x^3 + x^2y)$$
+
+$$\Downarrow$$
+
+$$
+\begin{cases}
+\psi_x(x, y) = 3x^2y + xy^2\\
+\psi_y(x, y) = x^3 + x^2y
+\end{cases}
+$$
+
+Therefore, by integrating the two expressions we get that
+
+$$
+\begin{cases}
+\psi(x, y) = \int{3x^2y + xy^2 dx} = x^3y + \frac{x^2y^2}{2} + h(y)\\
+\psi(x, y) = \int{x^3 + x^2y dy} = x^3y + \frac{x^2y^2}{2} + g(x)
+\end{cases}
+$$
+
+Comparing the two terms we obtain an expression for $\psi$:
+
+$$\psi(x,y) = x^3y + \frac{x^2y^2}{2} + C$$
+
+And we have our solutions:
+
+$$x^3y + \frac{x^2y^2}{2} = C$$
