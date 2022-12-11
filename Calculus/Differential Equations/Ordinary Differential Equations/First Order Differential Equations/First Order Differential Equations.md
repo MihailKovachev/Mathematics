@@ -527,8 +527,8 @@ Therefore, by integrating the two expressions we get that
 
 $$
 \begin{cases}
-\psi(x, y) = \int{3x^2y + xy^2 dx} = x^3y + \frac{x^2y^2}{2} + h(y)\\
-\psi(x, y) = \int{x^3 + x^2y dy} = x^3y + \frac{x^2y^2}{2} + g(x)
+\psi(x, y) = \int{(3x^2y + xy^2) dx} = x^3y + \frac{x^2y^2}{2} + h(y)\\
+\psi(x, y) = \int{(x^3 + x^2y) dy} = x^3y + \frac{x^2y^2}{2} + g(x)
 \end{cases}
 $$
 
